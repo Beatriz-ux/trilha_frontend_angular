@@ -1,0 +1,24 @@
+.resultado{
+    grid-area: 3/2/3/4;
+}
+.resultado li:first-child{
+    padding: 0;
+
+}
+.resultado ul{
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0.8rem;
+    
+}
+.resultado li{
+    padding-left:1rem ;
+    list-style: none;
+    
+}
+.resultado li a{
+    color:#F6873C;
+}
+.resultado div{
+    padding: 0.8rem;
+}

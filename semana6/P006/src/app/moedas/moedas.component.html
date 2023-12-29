@@ -1,0 +1,9 @@
+<div class="item menu servico">
+  <app-titulo nome="Moedas" />
+  <div class="listaMenu" id="listaMoedas">
+    <a href="" class="coins" *ngFor="let coin of coins; let i = index">
+      <img [src]="coin.iconUrl" />
+      <span>{{ i + 1 }}. {{ coin.name }}</span>
+    </a>
+  </div>
+</div>

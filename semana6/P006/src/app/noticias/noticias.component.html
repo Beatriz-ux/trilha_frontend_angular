@@ -1,0 +1,14 @@
+<div class="item news">
+  <app-titulo nome="Notícias"/>
+  <div id="news">
+    <div class="news-item" *ngFor="let noticia of noticias.slice(0 , 3)">
+        <b>{{noticia.title}}</b>
+        <ul>
+          <li>
+            <a href="{{noticia.url}}">Veja sobre</a>
+          </li>
+        </ul>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="item destaque">
+  <app-titulo nome="Destaque"/>
+  <div class="listaImg" id="listaImg">
+
+    <div *ngFor="let photo of photos" class="imagem">
+      <img
+      [src]="photo.urls.regular"
+      alt="{{ photo.alt_description }}"
+      class="photo-image"
+      />
+    </div>
+  </div>
+</div>

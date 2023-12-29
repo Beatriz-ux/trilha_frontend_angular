@@ -1,0 +1,21 @@
+
+
+h1 {
+  position: relative;
+  margin: 0;
+  font-weight: 300;
+  z-index: 100;
+}
+img {
+  position: relative;
+  height: 80px;
+  z-index: 100;
+}
+
+.item{
+  background-color: #fff;
+  color: #000;
+  border-radius: 5px;
+  overflow: hidden;
+  font-size: 1rem;
+  }
