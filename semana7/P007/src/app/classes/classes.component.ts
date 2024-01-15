@@ -9,6 +9,8 @@ export class ClassesComponent {
   @Input()
   categorias: string[] = [];
 
+  @Input()
+  title = '';
   // ngDoCheck(): void {
   //   if (this.categorias.length > 0) console.log(this.categorias);
   // }

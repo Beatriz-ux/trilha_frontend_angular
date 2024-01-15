@@ -9,6 +9,9 @@ export class PropriedadesComponent {
   @Input() 
   atributos: string[] = [];
 
+  @Input()
+  title = '';
+  
   @Output() buscaPropriedadeRealizada = new EventEmitter<string>();
 
   buscaPropriedade(atributo : string): void {
