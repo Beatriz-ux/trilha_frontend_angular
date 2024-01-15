@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-carrinho',
@@ -6,17 +6,17 @@ import { Component } from '@angular/core';
   styleUrl: './carrinho.component.css',
 })
 export class CarrinhoComponent {
-  dados: any[] = [];
+  @Output() buscaRealizada = new EventEmitter<any>();
 
   buscarDados(arquivo: string): void {
-    console.log('arquivo');
+
     //mostrar no console o arquivo veiculos.json que esta na pasta dados
 
     fetch(`assets/dados/${arquivo}.json`)
       .then((response) => response.json())
       .then((data) => {
-        this.dados = data;
-        console.log(this.dados);
+        this.buscaRealizada.emit(data);
       });
+
   }
 }
