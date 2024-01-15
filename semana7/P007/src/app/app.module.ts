@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { ClassesComponent } from './classes/classes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarrinhoComponent
+    CarrinhoComponent,
+    ClassesComponent
   ],
   imports: [
     BrowserModule,
