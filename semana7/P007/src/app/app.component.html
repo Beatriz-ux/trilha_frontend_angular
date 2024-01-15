@@ -1,5 +1,12 @@
 <h1>a</h1>
 <app-carrinho (buscaRealizada)="onBuscaRealizada($event)"/>
 <app-classes [categorias]="getCategorias()" (buscaCategoriaRealizada)="onBuscaCategoriaRealizada($event)"/>
-<app-objetos [veiculos]="veiculos" />
+<app-objetos [veiculos]="veiculos" (buscaObjetoRealizada)="onBuscaObjetoRealizada($event)"/>
+<app-propriedades [atributos]="atributos" (buscaPropriedadeRealizada)="onBuscaPropriedadeRealizada($event)"/>
 
+<app-valor-propriedade [value]="value"/>
+<app-botao (adicionar)="onAdcionar()"/>
+
+<div *ngFor="let nome of veiculosAdicionados">
+    <h1>{{nome}}</h1>
+</div>
