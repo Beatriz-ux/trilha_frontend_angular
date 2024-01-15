@@ -4,7 +4,7 @@
 
     <div *ngFor="let photo of photos" class="imagem">
       <img
-      [src]="photo.urls.regular"
+      src="{{photo.urls.regular}}"
       alt="{{ photo.alt_description }}"
       class="photo-image"
       />
