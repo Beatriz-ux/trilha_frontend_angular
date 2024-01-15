@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'P007';
+  dados: any = {};
+
+  onBuscaRealizada(event: any): void {
+    this.dados = event;
+  }
+
 }
