@@ -1,11 +1,20 @@
-<app-carrinho (buscaRealizada)="onBuscaRealizada($event)"/>
-<app-classes [categorias]="getCategorias()" (buscaCategoriaRealizada)="onBuscaCategoriaRealizada($event)"/>
-<app-objetos [veiculos]="veiculos" (buscaObjetoRealizada)="onBuscaObjetoRealizada($event)"/>
-<app-propriedades [atributos]="atributos" (buscaPropriedadeRealizada)="onBuscaPropriedadeRealizada($event)"/>
+<div class="container">
+    <app-carrinho (buscaRealizada)="onBuscaRealizada($event)"  />
+    <div class="container-filtros">
 
-<app-valor-propriedade [value]="value"/>
-<app-botao (adicionar)="onAdcionar()"/>
-
-<div *ngFor="let nome of veiculosAdicionados">
-    <h1>{{nome}}</h1>
+        <app-classes [categorias]="getCategorias()" (buscaCategoriaRealizada)="onBuscaCategoriaRealizada($event)" title="Categoria" class="item"/>
+        <app-objetos [veiculos]="veiculos" (buscaObjetoRealizada)="onBuscaObjetoRealizada($event)" [title]="categoria ? categoria : 'Veiculos'" class="item"/>
+        <app-propriedades [atributos]="atributos" (buscaPropriedadeRealizada)="onBuscaPropriedadeRealizada($event)" title="Atributos" class="item"/>
+        
+        <app-valor-propriedade [value]="value" [title]="propriedade ? propriedade : 'Propriedade'" class="item"/>
+    </div>
+    <app-botao (adicionar)="onAdcionar()" class="item"/>
+    
+    <div class="lista">
+        <h1>Veículos Salvos</h1>
+        <div *ngFor="let nome of veiculosAdicionados">
+            <span>{{nome}}</span>
+            <hr>
+        </div>
+    </div>
 </div>

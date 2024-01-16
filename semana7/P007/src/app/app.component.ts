@@ -14,6 +14,7 @@ export class AppComponent {
   veiculo = "";
   value = "";
   veiculosAdicionados: string[] = [];
+  propriedade: string = "";
 
 
   onBuscaRealizada(event: any): void {
@@ -49,6 +50,7 @@ export class AppComponent {
       }
       
     }
+    this.propriedade = event;
   }
 
   onAdcionar(): void {
