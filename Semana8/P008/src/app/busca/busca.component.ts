@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-busca',
@@ -7,8 +8,10 @@ import { Component } from '@angular/core';
 })
 export class BuscaComponent {
   termo: string = "";
+  @Output() buscaRealizada = new EventEmitter<string>();
   buscar(){
     console.log(this.termo);
+    this.buscaRealizada.emit(this.termo);
   }
 
 }

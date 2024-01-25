@@ -1,1 +1,26 @@
-
+h1{
+    font-size: 2rem;
+    font-weight: 100;
+}
+.barra{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border: 1px solid #ccc;
+    width: max-content;
+    height: 2rem;
+    margin-left:10px ;
+}
+label input{
+    border: none;
+    background: none;
+    outline: none;
+}
+label button{
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    height: 100%;
+    border-left: 1px solid #ccc;
+}
