@@ -1,4 +1,4 @@
-import { Component, Output } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 
 @Component({
@@ -8,6 +8,7 @@ import { EventEmitter } from '@angular/core';
 })
 export class BuscaComponent {
   termo: string = "";
+  @Input() qtd: string = "0";
   @Output() buscaRealizada = new EventEmitter<string>();
   buscar(){
     console.log(this.termo);

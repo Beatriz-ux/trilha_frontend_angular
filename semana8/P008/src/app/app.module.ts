@@ -8,11 +8,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BuscaComponent } from './busca/busca.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PipeTransformPipe } from './pipe-transform.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BuscaComponent
+    BuscaComponent,
+    PipeTransformPipe
   ],
   imports: [
     BrowserModule,

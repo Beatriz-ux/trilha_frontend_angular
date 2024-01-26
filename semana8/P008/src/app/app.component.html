@@ -1,1 +1,19 @@
-<app-busca (buscaRealizada)="onBuscaRealizada($event)" />
+<div class="container-app">
+  <app-busca
+    (buscaRealizada)="onBuscaRealizada($event)"
+    qtd="{{ qtd_result }}"
+  />
+  <div class="container-busca">
+    <h4 *ngIf="title_busca">Resultados para "{{ title_busca }}"</h4>
+    <div *ngFor="let news of lista_news_result">
+      <h3 [innerHTML]="news.title "></h3>
+      <span [innerHTML]="news.snippet | pipeTransform: title_busca"></span>
+      <span>...</span>
+      <br>
+      <a href="https://pt.wikipedia.org/?curid={{news.pageid}}" target="_blank">Leia mais</a>
+    </div>
+  </div>
+  <footer>
+    <p>©Desenvolvido por Beatriz</p>
+  </footer>
+</div>
