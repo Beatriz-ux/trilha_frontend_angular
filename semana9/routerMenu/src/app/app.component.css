@@ -1,0 +1,18 @@
+a{
+    text-decoration: none;
+    color: #000;
+    border-bottom: 2px solid #fff1;
+
+}
+
+.ativo{
+    border-bottom: 2px solid #000;
+}
+
+.menu{
+    display: flex;
+    gap: 10px;
+    background: #f1f1f1;
+    justify-content: center;
+    padding: 10px;
+}
