@@ -1,37 +1,82 @@
 .menu{
     width: 100%;
-    background: #ffffff;
-    padding: 10px;
+    background: #f4f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5em;
     position: fixed;
-    box-shadow: 0px 10px 10px #0000001c;
     margin-bottom: 2em;
-    border-bottom: 1px solid #00000067;
+    gap: 1em;
 
 }
 .menu a{
+    --fundo: #f4f4f400;
+    --frente: #00000000;
+    position: relative;
     text-decoration: none;
     color: #000000;
+    padding: 10px 30px;
     font-size: 1.2em;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 5px 5px 0px 0px;
+}
+.menu a::before{
+    
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    background: var(--fundo);
+    bottom: 0;
+    left: -40px;
+    border-radius: 0px 0px 20px 0px;
+    box-shadow: 20px 0px 0 0 var(--frente);
+
+}
+.menu a::after{
+    
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    background: var(--fundo);
+    bottom: 0;
+    right: -40px;
+    border-radius: 0px 0px 0px 20px;
+    box-shadow: -20px 0px 0 0 var(--frente);
+
 }
 .separador{
-    height: 3em;
+    height: 2.7em;
 }
 footer{
     width: 100%;
-    background: #ffffff;
+    background: #f4f4f4;
     padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5em;
     position: fixed;
-    box-shadow: 0px -10px 10px #0000001c;
     margin-top: 2em;
-    border-top: 1px solid #00000067;
     font-style: italic;
 }
+.menu .ativo1{
+    --fundo: #f4f4f4;
+    --frente: #d1d1d1;
+    background: #d1d1d1
+}
+
+.menu  .ativo2{
+    --fundo: #f4f4f4;
+    --frente: #e8e5fc;
+    background: #e8e5fc;
+}
+
+.menu .ativo3{
+    --fundo: #f4f4f4;
+    --frente: #190045;
+    background: #190045;
+    color:#fff;
+}
+

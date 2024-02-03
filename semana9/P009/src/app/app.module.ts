@@ -21,4 +21,7 @@ import { Projeto3Component } from './projeto3/projeto3.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  
+ }
