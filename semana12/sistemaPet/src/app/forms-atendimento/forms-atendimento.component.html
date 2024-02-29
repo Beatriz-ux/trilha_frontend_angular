@@ -1,0 +1,48 @@
+<div class="imagem-form">
+    <img src="./assets/img/fundo.png" alt="">
+</div>
+<div class="container-form">
+    <div class="fundo-form">
+        <h1>PetShop</h1>
+        <form [formGroup]="cadastrarPet" (ngSubmit)="onSubmit()">
+            <label for="data">
+                <span>Data do Atendimento</span>
+                <input type="date" id="data" formControlName="data" placeholder="xx/xx/xxxx" />
+            </label>
+
+            <label for="nome">
+                <span>Nome do Animal</span>
+                <input type="text" id="nome" formControlName="nome" placeholder="Nome do Animal" />
+            </label>
+
+            <label for="tutor">
+                <span>Nome do Proprietário</span>
+                <input type="text" id="tutor" formControlName="tutor" placeholder="Nome do Proprietário" />
+            </label>
+
+            <label for="tipo">
+                <span>Tipo</span>
+                <select id="tipo" formControlName="tipo">
+                    <option value="cachorro">Cachorro</option>
+                    <option value="gato">Gato</option>
+                    <option value="passaro">Pássaro</option>
+                    <option value="roedor">Roedor</option>
+                    <option value="reptil">Réptil</option>
+                    <option value="outros">Outros</option>
+                </select>
+            </label>
+
+            <label for="raca">
+                <span>Raça</span>
+                <input type="text" id="raca" formControlName="raca" placeholder="Raça" />
+            </label>
+
+            <label for="observacao">
+                <span>Observação</span>
+                <textarea id="observacao" formControlName="observacao" cols="30" rows="10"></textarea>
+            </label>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+</div>
