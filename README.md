@@ -11,7 +11,8 @@
     
 - [Semana 9](./semana8): Conceitos de angular: Routers.
     - [P009](https://beatriz-ux.github.io/trilha_frontend_angular/semana9/P009/dist/p009/browser):Através do uso de rotas montar uma pagina com 3 projetos diferentes.
-
+- [Semana 10](./semana8): Services e subject.
+    - [P007](https://beatriz-ux.github.io/trilha_frontend_angular/semana10/P007/dist/p007/browser):Refazendo comunicação entre componentes usando subject
 
 
 
