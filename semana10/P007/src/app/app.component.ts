@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataServiceService } from './data-service.service';
 
 @Component({
   selector: 'app-root',
@@ -15,58 +16,21 @@ export class AppComponent {
   value = '';
   veiculosAdicionados: string[] = [];
   propriedade: string = '';
+  salve='';
 
-  onBuscaRealizada(event: any): void {
-    this.dados = event;
+  constructor(private dataService: DataServiceService) {
   }
 
-  getCategorias(): string[] {
-    return Object.keys(this.dados);
-  }
-
-  onBuscaCategoriaRealizada(event: string): void {
-    this.atributos = [];
-    this.veiculos = [];
-    this.value = '';
-    let nameVeiculos = [];
-
-    this.categoria = event;
-
-    for (let veiculo of this.dados[event]) {
-      nameVeiculos.push(veiculo.Name);
+  ngOnInit(): void {
+    this.dataService.getSalve().subscribe((data) => {
+      this.salve = data;
+      if (!this.veiculosAdicionados.includes(this.salve) && this.salve != '')
+      this.veiculosAdicionados.push(this.salve);
+      
     }
-    this.veiculos = nameVeiculos;
+    );
+
   }
 
-  onBuscaObjetoRealizada(event: string): void {
-    this.value = '';
-    this.veiculo = event;
-    for (let veiculo of this.dados[this.categoria]) {
-      if (veiculo.Name == event) {
-        this.atributos = Object.keys(veiculo);
-      }
-    }
-  }
-  onBuscaPropriedadeRealizada(event: string): void {
-    for (let veiculo of this.dados[this.categoria]) {
-      if (veiculo.Name == this.veiculo) {
-        this.value = veiculo[event];
-      }
-    }
-    this.propriedade = event;
-  }
 
-  onAdcionar(): void {
-    //verifica se ja xontem a palavra na lista
-
-    if (!this.veiculosAdicionados.includes(this.veiculo) && this.veiculo != '')
-      this.veiculosAdicionados.push(this.veiculo);
-
-    this.atributos = [];
-    this.veiculos = [];
-    this.value = '';
-    this.dados = {};
-    this.veiculo = '';
-    //salvar todos os dados desse arquivo e adicionar a uma lista
-  }
 }

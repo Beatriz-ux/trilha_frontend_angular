@@ -1,4 +1,6 @@
 import { Component, ElementRef, EventEmitter, HostListener, Input, Output, Renderer2 } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { DataServiceService } from '../data-service.service';
 
 @Component({
   selector: 'app-objetos',
@@ -6,18 +8,26 @@ import { Component, ElementRef, EventEmitter, HostListener, Input, Output, Rende
   styleUrl: './objetos.component.css'
 })
 export class ObjetosComponent {
-  @Input()
   veiculos: string[] = [];
+  subscription: Subscription = new Subscription();
+
 
   @Input()
   title = '';
   
   @Output() buscaObjetoRealizada = new EventEmitter<string>();
 
-  constructor(private elemento: ElementRef, private renderizador: Renderer2) {
+  constructor(private elemento: ElementRef, private renderizador: Renderer2, private dataService: DataServiceService) {
   }
   buscaObjeto(event: string): void {
-    this.buscaObjetoRealizada.emit(event);
+    this.dataService.buscarAtributos(event);
+
+  }
+
+  ngOnInit(): void {
+    this.subscription = this.dataService.getVeiculos().subscribe((data) => {
+      this.veiculos = data; 
+    });
 
   }
 

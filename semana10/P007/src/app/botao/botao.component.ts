@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { DataServiceService } from '../data-service.service';
 
 @Component({
   selector: 'app-botao',
@@ -6,11 +7,13 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './botao.component.css'
 })
 export class BotaoComponent {
-  @Output() 
-  adicionar = new EventEmitter<string>();
+
+  constructor(private dataService: DataServiceService) {
+    
+  }
 
   adiciona(): void {
-    this.adicionar.emit();
+    this.dataService.adicionaVeiculo();
   }
 
 }

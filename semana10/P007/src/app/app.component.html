@@ -1,14 +1,14 @@
 <div class="container">
-    <app-carrinho (buscaRealizada)="onBuscaRealizada($event)"  />
+    <app-carrinho  />
     <div class="container-filtros">
 
-        <app-classes [categorias]="getCategorias()" (buscaCategoriaRealizada)="onBuscaCategoriaRealizada($event)" title="Categoria" class="item"/>
-        <app-objetos [veiculos]="veiculos" (buscaObjetoRealizada)="onBuscaObjetoRealizada($event)" [title]="categoria ? categoria : 'Veiculos'" class="item"/>
-        <app-propriedades [atributos]="atributos" (buscaPropriedadeRealizada)="onBuscaPropriedadeRealizada($event)" title="Atributos" class="item"/>
+        <app-classes   title="Categoria" class="item"/>
+        <app-objetos   [title]="categoria ? categoria : 'Veiculos'" class="item"/>
+        <app-propriedades  title="Atributos" class="item"/>
         
-        <app-valor-propriedade [value]="value" [title]="propriedade ? propriedade : 'Propriedade'" class="item"/>
+        <app-valor-propriedade  [title]="propriedade ? propriedade : 'Propriedade'" class="item"/>
     </div>
-    <app-botao (adicionar)="onAdcionar()" class="item"/>
+    <app-botao class="item"/>
     
     <div class="lista">
         <h1>Veículos Salvos</h1>

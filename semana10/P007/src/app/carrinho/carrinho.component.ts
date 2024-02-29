@@ -8,7 +8,6 @@ import { DataServiceService } from '../data-service.service';
   styleUrl: './carrinho.component.css',
 })
 export class CarrinhoComponent {
-  buscaRealizada : Subscription = new Subscription();
 
   constructor(private dataService: DataServiceService) {
   }
