@@ -1,0 +1,167 @@
+.formulario .containerInput input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+.formulario .containerInput input.ng-valid.ng-touched {
+  border: 1px solid green;
+}
+.containerInput select.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+.containerInput input.ng-valid.ng-touched + label{
+  color: green;
+}
+
+.containerInput input.ng-invalid.ng-touched + label {
+  color: red;
+}
+
+
+.containerAlert{
+  position: absolute;
+  background: #fcfcfc;
+  z-index: 99999;
+  width: 50vw;
+  height: 30vh;
+  color: red;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding: 10px;
+}
+.containerAlert p{
+  text-align: center;
+  width: 100%;
+}
+.formulario .containerAlert button{
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  background: red;
+  color: #fcfcfc;
+}
+
+.formulario{
+  width: 400px;
+  margin: 0 auto;
+  padding: 5px 25px;
+  border-radius: 5px;
+  backdrop-filter: blur(25px); 
+  background: #0000005c;
+  box-shadow: 0 0 10px #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+.formulario h1{
+  text-align: center;
+  color: #fcfcfc;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.containerInput{
+  position: relative;
+  height: 60px;
+  width: 100%;
+}
+.formulario .containerInput input , input[type="date"], input[type="email"], input[type="password"], input[type="text"]{
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background: transparent;
+  position: absolute;
+  padding: 10px 10px 0 10px;
+  height: 3.5em;
+  color: #fcfcfc;
+  box-sizing: border-box; 
+  line-height: 4em;
+}
+.containerInput label{
+  position: absolute;
+  transition: all 0.3s;
+  color: #a7a7a7;
+  z-index: 111;
+  font-size: 0.8em;
+  transform: translate(10px, 5px);
+
+}
+
+.containerRadio{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #a7a7a7;
+  width: 100%;
+}
+.containerRadio input[type="radio"]{
+  --s: 1em;     /* control the size */
+  --c: #45ac4e; /* the active color */
+  
+  height: var(--s);
+  aspect-ratio: 1;
+  border: calc(var(--s)/8) solid #939393;
+  padding: calc(var(--s)/8);
+  background: 
+     radial-gradient(farthest-side,var(--c) 94%,#0000) 
+     50%/0 0 no-repeat content-box;
+  border-radius: 50%;
+  outline-offset: calc(var(--s)/10);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  font-size: inherit;
+  transition: .3s;
+}
+.containerRadio input[type="radio"]:checked {
+  border-color: var(--c);
+  background-size: 100% 100%;
+}
+
+.containerSelect select{background-color: #7e8b376b;
+  backdrop-filter: blur(25px);
+  color: white;
+  padding: 12px;
+  border-radius: 5px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  width: 100%;
+  text-align: center;
+}
+.containerSelect{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #a7a7a7;
+  gap: 40px;
+  width: 100%;
+
+
+}
+
+.formulario button{
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #45ac4e;
+  color: #fcfcfc;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin: 1em 0;
+  
+}
+span{
+  position: absolute;
+  transform: translate(10px, 46px);
+  font-style: italic;
+  color: red;
+  font-size: 0.6em;
+}

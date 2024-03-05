@@ -1,0 +1,91 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" validate class="formulario">
+  <h1>Cadastro</h1>
+  <div class="containerInput">
+    <input type="text" id="name" formControlName="name" />
+    <label for="name" class="labelUp">UserName</label>
+    <span *ngIf="!form.get('name')?.valid && form.get('name')?.touched"
+      >*Nome indisponivel</span
+    >
+  </div>
+
+  <div class="containerInput">
+    <input type="email" id="email" formControlName="email" />
+    <label for="email" class="labelUp">Email</label>
+    <span *ngIf="!form.get('email')?.valid && form.get('email')?.touched"
+      >*Email inválido</span
+    >
+  </div>
+
+  <div class="containerInput">
+    <input type="passWord" id="passWord" formControlName="passWord" />
+    <label for="passWord" class="labelUp">Senha</label>
+    <span *ngIf="!form.get('passWord')?.valid && form.get('passWord')?.touched"
+      >*Senha inválida</span
+    >
+  </div>
+
+  <div class="containerInput">
+    <input type="date" id="date" formControlName="date" />
+    <label for="date" class="labelUp">Data de nascimento</label>
+    <span *ngIf="!form.get('date')?.valid && form.get('date')?.touched"
+      >*Apenas maiores de 18</span
+    >
+  </div>
+
+  <div class="containerInput">
+    <input type="text" id="fullName" formControlName="fullName" />
+    <label for="fullName" class="labelUp">Nome completo</label>
+    <span *ngIf="!form.get('fullName')?.valid && form.get('fullName')?.touched"
+      >*Nome completo inválido</span
+    >
+  </div>
+
+  <div class="containerInput">
+    <input
+      type="text"
+      id="telephone"
+      formControlName="telephone"
+      placeholder="(xx) xxxxx-xxxx"
+    />
+    <label for="telephone" class="labelUp">Telefone</label>
+    <span
+      *ngIf="!form.get('telephone')?.valid && form.get('telephone')?.touched"
+      >*Informe no formato: (xx) xxxxx-xxxx</span
+    >
+  </div>
+
+  <div class="containerInput">
+    <input type="text" id="address" formControlName="address" />
+    <label for="address" class="labelUp">Endereço</label>
+    <span *ngIf="!form.get('address')?.valid && form.get('address')?.touched"
+      >*Endereço inválido</span
+    >
+  </div>
+
+  <div class="containerRadio">
+    <label>Gênero:</label>
+
+    <label>
+      <input type="radio" formControlName="gender" value="m" /> Masculino
+    </label>
+    <label>
+      <input type="radio" formControlName="gender" value="f" /> Feminino
+    </label>
+  </div>
+
+  <div class="containerSelect">
+    <label for="profession">Profissão:</label>
+    <select id="profession" formControlName="profession">
+      <option value="professor">Professor</option>
+      <option value="ti">TI</option>
+      <option value="estudante">Estudante</option>
+    </select>
+  </div>
+
+  <button type="submit">Enviar</button>
+
+  <div *ngIf="openAlert" class="containerAlert">
+    <button (click)="openAlert = false">X</button>
+    <p>Ocorreu um erro. Por favor, verifique os campos do formulário.</p>
+  </div>
+</form>
