@@ -9,7 +9,7 @@ import { AbstractControl, Form, FormControl, FormGroup, ValidationErrors, Valida
 export class FormUsuarioComponent implements OnInit{
   form : FormGroup;
   dados: any [] = [];
-  openAlert : boolean = true;
+  openAlert : boolean = false;
   constructor() {
     this.form = new FormGroup({
       name: new FormControl(null,

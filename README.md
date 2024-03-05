@@ -14,5 +14,6 @@
 - [Semana 10](./semana8): Services e subject.
     - [P007](https://beatriz-ux.github.io/trilha_frontend_angular/semana10/P007/dist/p007/browser):Refazendo comunicação entre componentes usando subject
 
-
+- [Semana 11](./semana11): FormsGroup e validações
+    - [P007](https://beatriz-ux.github.io/trilha_frontend_angular/semana11/P011/dist/p011/browser): Cadastro de usuário, com validações de dados.
 
