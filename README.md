@@ -12,8 +12,10 @@
 - [Semana 9](./semana8): Conceitos de angular: Routers.
     - [P009](https://beatriz-ux.github.io/trilha_frontend_angular/semana9/P009/dist/p009/browser):Através do uso de rotas montar uma pagina com 3 projetos diferentes.
 - [Semana 10](./semana8): Services e subject.
-    - [P007](https://beatriz-ux.github.io/trilha_frontend_angular/semana10/P007/dist/p007/browser):Refazendo comunicação entre componentes usando subject
+    - [P010](https://beatriz-ux.github.io/trilha_frontend_angular/semana10/P007/dist/p007/browser):Refazendo comunicação entre componentes usando subject
 
 - [Semana 11](./semana11): FormsGroup e validações
-    - [P007](https://beatriz-ux.github.io/trilha_frontend_angular/semana11/P011/dist/p011/browser): Cadastro de usuário, com validações de dados.
+    - [P011](https://beatriz-ux.github.io/trilha_frontend_angular/semana11/P011/dist/p011/browser): Cadastro de usuário, com validações de dados.
 
+- [Semana 12](./semana12): FormsGroup e validações
+    - [P012](https://beatriz-ux.github.io/trilha_frontend_angular/semana12/P011/dist/p011/browser): Cadastro de usuário, com validações de dados.
