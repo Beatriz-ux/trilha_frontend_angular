@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, Form, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { FormServiceService } from '../service/form-service.service';
 
 @Component({
   selector: 'app-form-usuario',
@@ -10,7 +11,7 @@ export class FormUsuarioComponent implements OnInit{
   form : FormGroup;
   dados: any [] = [];
   openAlert : boolean = false;
-  constructor() {
+  constructor(private service : FormServiceService) {
     this.form = new FormGroup({
       name: new FormControl(null,
         [Validators.required,this.userNameValidator.bind(this), Validators.maxLength(12),Validators.pattern(/^\S*$/)],),
@@ -50,6 +51,7 @@ export class FormUsuarioComponent implements OnInit{
 
     }
 
+
   }
   ageValidator(control : AbstractControl): ValidationErrors | null{
     // Verifica se o usuário tem pelo menos 18 anos
@@ -61,6 +63,27 @@ export class FormUsuarioComponent implements OnInit{
   userNameValidator(control : AbstractControl): ValidationErrors | null{
     const name = control.value;
     return this.dados.find((dado) => dado.name === name) ? {nameExists: true} : null;
+  }
+
+  onFocus(){
+    this.service.onNameFocus();
+  }
+
+  onChanges(event : any){
+    this.service.onNameChange(event);
+  }
+
+  onInput(event : any){
+    this.service.onNameInput(event);
+  }
+
+  onBlur(){
+    this.service.onNameBlur();
+  }
+
+  onForm(){
+    console.log("tocou");
+    this.service.onFormChange(this.form);
   }
 
 }

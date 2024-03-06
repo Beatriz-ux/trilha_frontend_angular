@@ -1,7 +1,7 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" validate class="formulario">
+<form [formGroup]="form" (ngSubmit)="onSubmit()" validate class="formulario" (touched)="onForm()">
   <h1>Cadastro</h1>
   <div class="containerInput">
-    <input type="text" id="name" formControlName="name" />
+    <input type="text" id="name" formControlName="name" (focus)="onFocus()" (change)="onChanges($event)" (input)="onInput($event)" (blur)="onBlur()"/>
     <label for="name" class="labelUp">UserName</label>
     <span *ngIf="!form.get('name')?.valid && form.get('name')?.touched"
       >*Nome indisponivel</span
