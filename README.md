@@ -18,4 +18,4 @@
     - [P011](https://beatriz-ux.github.io/trilha_frontend_angular/semana11/P011/dist/p011/browser): Cadastro de usuário, com validações de dados.
 
 - [Semana 12](./semana12): FormsGroup e validações
-    - [P012](https://beatriz-ux.github.io/trilha_frontend_angular/semana12/P011/dist/p011/browser): Cadastro de usuário, com validações de dados.
+    - [P012](https://beatriz-ux.github.io/trilha_frontend_angular/semana12/P011/dist/p011/browser): Atualizando a P11 para acompanhamento em tempo real.
