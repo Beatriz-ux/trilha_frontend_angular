@@ -1,0 +1,37 @@
+<!-- <p>Aqui fosse menu</p>
+<a href="/login">aaaaaaaaaaa</a>
+<router-outlet>
+</router-outlet> -->
+<div class="containerCadastro">
+    <div class="banner">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+    </div>
+    <div class="formCadastro">
+        <form [formGroup]="formsCadastro">
+            <div class="form-group">
+                <label for="nome">Nome do Proprietário</label>
+                <input type="text" class="form-control" id="nome" formControlName="name">
+            </div>
+            <div class="form-group">
+                <label for="nome">Nome da fazenda</label>
+                <input type="text" class="form-control" id="nome" formControlName="nameFarm">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" formControlName="email">
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" class="form-control" id="senha" formControlName="password">
+            </div>
+            <div class="form-group">
+                <label for="confirmarSenha">Confirmar Senha</label>
+                <input type="password" class="form-control" id="confirmarSenha" formControlName="confirmPassword">
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="cadastrar()">Cadastrar</button>
+        </form>
+    </div>
+</div>
