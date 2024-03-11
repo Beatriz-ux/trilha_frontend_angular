@@ -1,7 +1,6 @@
 {
   "hosting": {
-    "site": "residencia-tic",
-    "public": "public",
+    "public": "dist/p015/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
