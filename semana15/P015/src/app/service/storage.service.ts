@@ -1,19 +1,13 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StorageService {
+  constructor() {}
 
-  constructor() { }
-
-  cadastrar(dadosUsuario: any){
+  cadastrar(dadosUsuario: any) {
     console.log(dadosUsuario);
-    
   }
-  criptografar(senha: string) {
-    
-
-
-  }
+  criptografar(senha: string) {}
 }

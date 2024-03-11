@@ -42,6 +42,7 @@ export class AuthService {
             resData.idToken,
             expiracaoData
           );
+          console.log(usuario);
           this.usuario.next(usuario);
           localStorage.setItem('userData', JSON.stringify(usuario));
         })

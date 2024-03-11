@@ -1,6 +1,6 @@
 <div class="formCadastro">
     <h1>Entre na sua Conta</h1>
-    <form [formGroup]="formsCadastro" autenticaForm="ngForm" (ngSubmit)="onSubmit(autenticaForm)">
+    <form [formGroup]="formsCadastro" autenticaForm="ngForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="email">Email</label>
         <input
@@ -33,7 +33,7 @@
           >*Senha precisa ter no mínimo 6 caracteres</small
         >
       </div>
-      <button type="submit" class="btn btn-primary" (click)="login()">
+      <button type="submit" class="btn btn-primary">
         login
       </button>
     </form>

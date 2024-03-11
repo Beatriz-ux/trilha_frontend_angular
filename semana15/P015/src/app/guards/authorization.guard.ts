@@ -21,10 +21,17 @@ export class AuthGuard implements CanActivate {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
-    const isAuth = !!this.authService.usuario.value.token;
-    if (isAuth) {
-      return true;
+    const userData = localStorage.getItem('userData');
+    let isAuth = false;
+
+    if (userData) {
+      const user = JSON.parse(userData);
+      isAuth = !!user._token;
     }
-    return this.router.createUrlTree(['/sem-autorizacao']);
+
+    if (isAuth) {
+      return this.router.createUrlTree(['']);
+    }
+    return this.router.createUrlTree(['login']);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { StorageService } from '../service/storage.service';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -11,7 +12,10 @@ export class CadastroComponent implements OnInit {
   formsCadastro: FormGroup;
   bufferPassWord: string = '';
   openAlert: boolean = false;
-  constructor(private service: StorageService) {
+  constructor(
+    private service: StorageService,
+    private authService: AuthService
+  ) {
     this.formsCadastro = new FormGroup({
       name: new FormControl(null, [
         Validators.required,
@@ -22,7 +26,10 @@ export class CadastroComponent implements OnInit {
         Validators.minLength(6),
         Validators.email,
       ]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
+      password: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(6),
+      ]),
       confirmPassword: new FormControl(null, [Validators.required]),
       nameFarm: new FormControl(null, [
         Validators.required,
@@ -35,15 +42,17 @@ export class CadastroComponent implements OnInit {
 
   onSubmit() {
     if (this.formsCadastro.valid) {
+      var login = this.formsCadastro.value.email;
+      var senha = this.formsCadastro.value.password;
+
+      this.authService.signUp(login, senha).subscribe((responseData) => {});
+
       this.service.cadastrar(this.formsCadastro.value);
-      
+
       this.formsCadastro.reset();
-    }else{
+    } else {
       this.openAlert = true;
-
     }
-
-
   }
 
   cadastrar() {
@@ -51,13 +60,10 @@ export class CadastroComponent implements OnInit {
     console.log(this.formsCadastro);
   }
   comparePassword(pass: any): void {
-    console.log(pass.target.value);
-    console.log(this.bufferPassWord);
     const confirmPasswordControl =
       this.formsCadastro.controls['confirmPassword'];
 
     if (pass.target.value === this.bufferPassWord) {
-      console.log('Senhas iguais');
       confirmPasswordControl.setErrors(null);
     } else {
       confirmPasswordControl.setErrors({ notSame: true });
