@@ -42,8 +42,6 @@ export class CadastroComponent implements OnInit {
       this.openAlert = true;
 
     }
-
-
   }
 
   cadastrar() {
