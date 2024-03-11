@@ -4,7 +4,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '/', component: CadastroComponent },
+  { path: '', redirectTo: '/cadastro', pathMatch: 'full' }, // Redirecionamento padrão para o CadastroComponent
+  { path: 'cadastro', component: CadastroComponent },
   { path: 'login', component: LoginComponent },
 
 ];
