@@ -4,13 +4,12 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '/', component: CadastroComponent },
+  { path: '', component: CadastroComponent },
   { path: 'login', component: LoginComponent },
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
