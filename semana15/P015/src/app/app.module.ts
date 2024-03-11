@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CadastroSuinoComponent } from './cadastro-suino/cadastro-suino.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CadastroComponent,
-    LoginComponent
+    LoginComponent,
+    CadastroSuinoComponent
   ],
   imports: [
     BrowserModule,
