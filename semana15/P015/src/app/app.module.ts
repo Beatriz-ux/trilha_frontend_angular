@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 import { CadastroSuinoComponent } from './cadastro-suino/cadastro-suino.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -14,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     CadastroComponent,
     LoginComponent,
+    HomeComponent,
     CadastroSuinoComponent,
   ],
   imports: [

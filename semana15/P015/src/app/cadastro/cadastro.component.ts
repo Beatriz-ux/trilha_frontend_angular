@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { StorageService } from '../service/storage.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -9,7 +10,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class CadastroComponent implements OnInit {
   formsCadastro: FormGroup;
   bufferPassWord: string = '';
-  constructor() {
+  openAlert: boolean = false;
+  constructor(private service: StorageService) {
     this.formsCadastro = new FormGroup({
       name: new FormControl(null, [
         Validators.required,
@@ -30,6 +32,19 @@ export class CadastroComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  onSubmit() {
+    if (this.formsCadastro.valid) {
+      this.service.cadastrar(this.formsCadastro.value);
+      
+      this.formsCadastro.reset();
+    }else{
+      this.openAlert = true;
+
+    }
+
+
+  }
 
   cadastrar() {
     console.log('Cadastrando...');

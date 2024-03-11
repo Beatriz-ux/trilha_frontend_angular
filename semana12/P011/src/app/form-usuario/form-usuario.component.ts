@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, Form, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { FormServiceService } from '../service/form-service.service';
+// import * as CryptoJS from 'crypto-js';
+
+
 
 @Component({
   selector: 'app-form-usuario',
@@ -44,13 +47,13 @@ export class FormUsuarioComponent implements OnInit{
 
   onSubmit() {
     if (this.form.valid) {
+      var senhaCriptografada = CryptoJS.SHA256(this.form.value.passWord).toString();
       this.dados.push(this.form.value);
       this.form.reset();
     }else{
       this.openAlert = true;
 
     }
-
 
   }
   ageValidator(control : AbstractControl): ValidationErrors | null{
