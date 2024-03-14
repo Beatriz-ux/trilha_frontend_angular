@@ -1,8 +1,8 @@
 // auth.service.ts
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, tap } from 'rxjs';
+import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Usuario } from '../model/usuario.model';
+import { IUser, Usuario } from '../model/usuario.model';
 
 interface AuthResponseData {
   idToken: string;

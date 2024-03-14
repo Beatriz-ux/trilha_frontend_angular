@@ -5,23 +5,19 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './guards/authorization.guard';
+import { CadastroSuinoComponent } from './cadastro-suino/cadastro-suino.component';
 
 const routes: Routes = [
-  { path: '**', redirectTo: 'dashboard' },
   {
-    path: 'a',
+    path: '',
     component: HomeComponent,
     children: [
       { path: 'login', component: LoginComponent },
-      { path: 'a', component: CadastroComponent },
+      { path: '', component: CadastroComponent },
     ],
   },
-  { path: 'dashboard', component: DashboardComponent },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    // canActivate: [AuthGuard],
-  },
+  { path: 'dashboard', component: CadastroSuinoComponent },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
