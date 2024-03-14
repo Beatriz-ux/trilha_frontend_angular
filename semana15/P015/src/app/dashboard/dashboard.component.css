@@ -1,19 +1,24 @@
 .containerDasboard{
-    background: var(--backound-color);
+    background: #fff;
 
 
 }
-.containerDasboard .menu {
+.menuContainer{
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 1000px;
+  width: 100%;
   background-color: var(--primary-color);
   padding: 10px 30px;
   position: fixed;
+}
+ .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 100px;
+  
   
 }
-.containerDasboard .logo a {
+.menu .logo a {
   font-size: 1.5rem;
   color: var(--backound-color);
   text-decoration: none;
@@ -22,7 +27,7 @@
     padding: 0;
 
 }
-.containerDasboard .logo small{
+.menu .logo small{
     display: flex;
     align-items: flex-end;
     margin: 0;
@@ -30,67 +35,119 @@
 
 }
 
-.containerDasboard .links{
+.menu .links{
     display: flex;
     gap: 4rem;
 }
-.containerDasboard .links a {
+.menu .links a {
     color: var(--backound-color);
     text-decoration: none;
     font-weight: 500;
 }
-
-.containerDasboard footer {
+ footer {
   background-color: var(--primary-color);
   color: var(--backound-color);
   text-align: center;
   padding: 10px 0;
-  font-size: 1rem;
-  width: 1000px;
+  font-size: 0.9rem;
+  width: 100%;
   font-style: italic;
 }
-.containerDasboard footer p{
+ footer p{
     margin: 0;
 
 }
 .containerDasboard .secao{
     min-height: 300px;
+    width: 100%;
+}
+.containerDasboard .secaoProducao{
+    background: var(--background2-color);
 }
 .suinoplus{
     display: flex;
-    flex-direction: column;
-    padding: 70px 30px 30px 30px;
-    justify-content: center;
-    align-items:center
+    flex-direction: row;
+    padding: 70px 0px 30px 0px;
+    justify-content: space-between;
+    align-items:center;
+    width: 100%;
 }
 
 .topico{
     font-size: 1.4rem;
-    padding: 5px 10px;
     border-radius: 20px;
     color: var(--primary-color);
     text-align: center;
 }
 .suinoplus .item{
     width: 70%;
-    background: var(--quaternary-color);
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    padding: 40px;
+    background: var(--backound-color);
 }
 .minhaProducao{
-    padding: 70px 30px 30px 30px;
+    padding: 20px 0px 30px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: var(--backound-color);
+}
+.minhaProducao .item{
+    align-items: center;
+}
+.secaoProducao .minhaProducao .topico{
+    color: var(--backound-color9);
+}
+.minhaProducao .filtros{
+    display: flex;
+    align-items: center;
+    padding: 5px 30px;
+    background: var(--backound-color);
+}
+.minhaProducao .filtros span{
+    cursor: pointer;
+    flex: 1;
+    color: var(--primary-color);
+    text-align: center;
+}
+.acompanhamento{
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.minhaProducao .item{
-    align-items: center;
-    padding: 5px 30px;
-}
-.minhaProducao .filtros{
+
+.acompanhamento .busca{
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 20px;
     padding: 5px 30px;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
 }
-.minhaProducao .filtros span{
-    cursor: pointer;
+.acompanhamento .busca img{
+    width: 20px;
+    height: 20px;
+}
+.acompanhamento .busca input{
+    border: none;
+    width: 100%;
+    outline: none;
+}
+
+.grafico .item{
+    
+}
+
+.grafico .results{
+    display: flex;
+}
+.grafico .results .item{
+    width: 50%;
+}
+.grafico .results .desenho{
+    background-color: var(--backound-color);
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    padding: 20px 0px;
 }

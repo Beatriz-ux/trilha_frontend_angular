@@ -32,5 +32,7 @@ export class CadastroSuinoComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.cadastroForm.value);
+    //service
+    /* Aqui precisa ta o codigo para salvar isso no banco, já linkando ao user */
   }
 }

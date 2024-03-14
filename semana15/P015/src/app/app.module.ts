@@ -11,7 +11,9 @@ import { CadastroSuinoComponent } from './cadastro-suino/cadastro-suino.componen
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AutenticaInterceptor } from './service/autentica.interceptor';
-
+import { GraficoComponent } from './grafico/grafico.component';
+import { MatIconModule } from '@angular/material/icon';
+import { HistoricoPesoComponent } from './historico-peso/historico-peso.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +22,8 @@ import { AutenticaInterceptor } from './service/autentica.interceptor';
     HomeComponent,
     CadastroSuinoComponent,
     DashboardComponent,
+    GraficoComponent,
+    HistoricoPesoComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +31,7 @@ import { AutenticaInterceptor } from './service/autentica.interceptor';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    MatIconModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AutenticaInterceptor, multi: true },
