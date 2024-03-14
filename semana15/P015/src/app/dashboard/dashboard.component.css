@@ -1,0 +1,96 @@
+.containerDasboard{
+    background: var(--backound-color);
+
+
+}
+.containerDasboard .menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1000px;
+  background-color: var(--primary-color);
+  padding: 10px 30px;
+  position: fixed;
+  
+}
+.containerDasboard .logo a {
+  font-size: 1.5rem;
+  color: var(--backound-color);
+  text-decoration: none;
+  display: flex;
+  margin: 0;
+    padding: 0;
+
+}
+.containerDasboard .logo small{
+    display: flex;
+    align-items: flex-end;
+    margin: 0;
+    padding: 0;
+
+}
+
+.containerDasboard .links{
+    display: flex;
+    gap: 4rem;
+}
+.containerDasboard .links a {
+    color: var(--backound-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.containerDasboard footer {
+  background-color: var(--primary-color);
+  color: var(--backound-color);
+  text-align: center;
+  padding: 10px 0;
+  font-size: 1rem;
+  width: 1000px;
+  font-style: italic;
+}
+.containerDasboard footer p{
+    margin: 0;
+
+}
+.containerDasboard .secao{
+    min-height: 300px;
+}
+.suinoplus{
+    display: flex;
+    flex-direction: column;
+    padding: 70px 30px 30px 30px;
+    justify-content: center;
+    align-items:center
+}
+
+.topico{
+    font-size: 1.4rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: var(--primary-color);
+    text-align: center;
+}
+.suinoplus .item{
+    width: 70%;
+    background: var(--quaternary-color);
+}
+.minhaProducao{
+    padding: 70px 30px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.minhaProducao .item{
+    align-items: center;
+    padding: 5px 30px;
+}
+.minhaProducao .filtros{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 30px;
+}
+.minhaProducao .filtros span{
+    cursor: pointer;
+}

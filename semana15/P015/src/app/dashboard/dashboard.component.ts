@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
 
+  orderBy(tipo: number){
+    switch(tipo){
+      case 1: 
+        console.log('Ordenar por pai');
+        break;
+      case 2: 
+        console.log('Ordenar por mae');
+        break;
+      case 3: 
+        console.log('Ordenar por valor');
+        break;
+    }
+  }
+
 }

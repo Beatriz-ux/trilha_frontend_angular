@@ -13,3 +13,28 @@ export class Usuario {
     return this._token;
   }
 }
+
+export interface IUser{
+  name: string;
+  nameFarm: string;
+  email: string;
+  Piggers?: IPig[];
+
+
+
+}
+
+export interface IPig{
+  fatherEarTag: string;
+  motherEarTag: string;
+  dateOfBirth: string;
+  dateOfDeparture: string;
+  status: string;
+  gender: 'M'|'F';
+  weights?: IWeights[]
+}
+
+export interface IWeights{
+  weight: number;
+  date: string;
+}

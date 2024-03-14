@@ -8,6 +8,7 @@
 --quaternary-color:#fedc70;
 --backound-color:#fdf6e4;
 font-family: 'Poppins', sans-serif;
+box-sizing: border-box;
 
 }
 body {
@@ -15,4 +16,9 @@ body {
   padding: 0;
   box-sizing: border-box;
   
+}
+
+.max-width {
+  max-width: 1000px;
+  margin: 0 auto;
 }
