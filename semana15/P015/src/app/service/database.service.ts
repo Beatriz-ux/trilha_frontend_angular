@@ -5,6 +5,10 @@ import { Injectable, OnInit } from '@angular/core';
   providedIn: 'root',
 })
 export class DatabaseService implements OnInit {
+  //Variaveis que vou precisar:
+  //listaSuinos(lista dos suinos de determinado usuario, isso que vai ser mostrado no minha Produção)
+  //listaPesos(lista dos pesos de determinado suino)
+  //o nome do usuario logado
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {}

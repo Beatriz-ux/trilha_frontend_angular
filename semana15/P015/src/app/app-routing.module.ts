@@ -16,7 +16,12 @@ const routes: Routes = [
       { path: '', component: CadastroComponent },
     ],
   },
-  { path: 'dashboard', component: CadastroSuinoComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+  },
   { path: '**', redirectTo: '' },
 ];
 
