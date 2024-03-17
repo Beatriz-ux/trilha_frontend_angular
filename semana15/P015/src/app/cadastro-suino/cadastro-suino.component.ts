@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { StorageService } from '../service/storage.service';
+import { IPig } from '../model/usuario.model';
 
 @Component({
   selector: 'app-cadastro-suino',
@@ -26,13 +28,21 @@ export class CadastroSuinoComponent implements OnInit {
     sexo: new FormControl('', Validators.required),
   });
 
-  constructor() {}
+  constructor(private storageService: StorageService) {}
 
   ngOnInit(): void {}
 
   onSubmit(): void {
-    console.log(this.cadastroForm.value);
-    //service
-    /* Aqui precisa ta o codigo para salvar isso no banco, já linkando ao user */
+    const formValue = this.cadastroForm.value;
+    const cadastro: IPig = {
+      fatherEarTag: formValue.brincoPai || '',
+      motherEarTag: formValue.brincoMae || '',
+      dateOfBirth: formValue.dataNascimento || '',
+      dateOfDeparture: formValue.dataSaida || '',
+      gender:
+        formValue.sexo === 'M' || formValue.sexo === 'F' ? formValue.sexo : 'M',
+      status: formValue.status || '',
+    };
+    this.storageService.addCadastroSuino(cadastro);
   }
 }
