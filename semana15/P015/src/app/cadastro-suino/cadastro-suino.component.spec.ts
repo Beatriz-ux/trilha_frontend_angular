@@ -8,10 +8,9 @@ describe('CadastroSuinoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CadastroSuinoComponent]
-    })
-    .compileComponents();
-    
+      declarations: [CadastroSuinoComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(CadastroSuinoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

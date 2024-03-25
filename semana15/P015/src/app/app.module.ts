@@ -14,6 +14,7 @@ import { AutenticaInterceptor } from './service/autentica.interceptor';
 import { GraficoComponent } from './grafico/grafico.component';
 import { MatIconModule } from '@angular/material/icon';
 import { HistoricoPesoComponent } from './historico-peso/historico-peso.component';
+import { MinhaProducaoComponent } from './minha-producao/minha-producao.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { HistoricoPesoComponent } from './historico-peso/historico-peso.componen
     DashboardComponent,
     GraficoComponent,
     HistoricoPesoComponent,
+    MinhaProducaoComponent,
   ],
   imports: [
     BrowserModule,
