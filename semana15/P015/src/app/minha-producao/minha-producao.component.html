@@ -10,9 +10,9 @@
             <p>Status: {{suino.status}}</p>
             <p>Pesos: </p>
             <ul>
-                <li *ngFor="let weight of suino.weights">
-                    <p>Peso: {{weight.weight}}KG</p>
-                    <p>Data: {{weight.date | date:'dd/MM/yyyy'}}</p>
+                <li *ngFor="let weight of pesos">
+                    <p>Peso: {{weight.weight}}</p>
+                    <p>Data: {{weight.date}}</p>
                 </li>
             </ul>
         </li>

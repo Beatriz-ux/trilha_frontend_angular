@@ -17,5 +17,9 @@ export class MinhaProducaoComponent implements OnInit {
     this.storageService.listarSuinos().subscribe((suinos) => {
       this.suinos = suinos;
     });
+
+    this.storageService.listarPesosSuino().subscribe((pesos) => {
+      this.pesos = pesos;
+    });
   }
 }

@@ -79,7 +79,7 @@ export class StorageService {
     return console.log('Usuário não autenticado');
   }
 
-  listarSuinos() {
+  listarSuinos(): Observable<IPig[]> {
     const userData = localStorage.getItem('userData');
 
     if (userData) {
@@ -132,24 +132,31 @@ export class StorageService {
     return console.log('Usuário não autenticado');
   }
 
-  listarPesosSuino(userId: string) {
+  listarPesosSuino(): Observable<IWeights[]> {
     const userData = localStorage.getItem('userData');
 
     if (userData) {
       const user = JSON.parse(userData);
       return this.http
-        .get<{ [key: string]: IWeights }>(
-          `https://residencia-tic-default-rtdb.firebaseio.com/pesos/${userId}.json`
+        .get<{ [key: string]: { [key: string]: IWeights } }>(
+          `https://residencia-tic-default-rtdb.firebaseio.com/pesos/${user.id}.json`
         )
         .pipe(
           map((responseData) => {
-            const pesoArray: IWeights[] = [];
-            for (const key in responseData) {
-              if (responseData.hasOwnProperty(key)) {
-                pesoArray.push({ ...responseData[key], id: key });
+            const weightsArray: IWeights[] = [];
+            for (const weightId in responseData) {
+              if (responseData.hasOwnProperty(weightId)) {
+                for (const key in responseData[weightId]) {
+                  if (responseData[weightId].hasOwnProperty(key)) {
+                    weightsArray.push({
+                      ...responseData[weightId][key],
+                      id: key,
+                    });
+                  }
+                }
               }
             }
-            return pesoArray;
+            return weightsArray;
           })
         );
     }
