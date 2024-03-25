@@ -9,6 +9,7 @@ import { IPig, IWeights } from '../model/usuario.model';
 })
 export class MinhaProducaoComponent implements OnInit {
   suinos: IPig[] = [];
+  pesos: IWeights[] = [];
 
   constructor(private storageService: StorageService) {}
 

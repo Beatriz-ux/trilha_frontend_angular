@@ -2,7 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IPig, IUser, IWeights } from '../model/usuario.model';
 import { AuthService } from './auth.service';
-import { Observable, map, of, switchMap, take, throwError } from 'rxjs';
+import {
+  Observable,
+  catchError,
+  map,
+  of,
+  switchMap,
+  take,
+  throwError,
+} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -101,7 +109,52 @@ export class StorageService {
     return of([] as IPig[]);
   }
 
-  addPesoSuino() {}
+  addPesoToSuino(userId: string, peso: IWeights) {
+    const userData = localStorage.getItem('userData');
 
-  listarPesosSuino() {}
+    if (userData) {
+      const user = JSON.parse(userData);
+      return this.http
+        .post(
+          `https://residencia-tic-default-rtdb.firebaseio.com/pesos/${user.id}/${userId}/.json`,
+          peso
+        )
+        .subscribe(
+          (response) => {
+            console.log('Resposta da solicitação:', response);
+          },
+          (error) => {
+            console.error('Erro na solicitação:', error);
+          }
+        );
+    }
+
+    return console.log('Usuário não autenticado');
+  }
+
+  listarPesosSuino(userId: string) {
+    const userData = localStorage.getItem('userData');
+
+    if (userData) {
+      const user = JSON.parse(userData);
+      return this.http
+        .get<{ [key: string]: IWeights }>(
+          `https://residencia-tic-default-rtdb.firebaseio.com/pesos/${userId}.json`
+        )
+        .pipe(
+          map((responseData) => {
+            const pesoArray: IWeights[] = [];
+            for (const key in responseData) {
+              if (responseData.hasOwnProperty(key)) {
+                pesoArray.push({ ...responseData[key], id: key });
+              }
+            }
+            return pesoArray;
+          })
+        );
+    }
+
+    console.log('Usuário não autenticado');
+    return of([] as IWeights[]);
+  }
 }
