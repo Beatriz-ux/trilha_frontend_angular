@@ -22,18 +22,20 @@ export interface IUser {
 }
 
 export interface IPig {
-  id?: string;
+  idPig?: string;
   fatherEarTag: string;
   motherEarTag: string;
   dateOfBirth: string;
   dateOfDeparture: string;
   status: string;
   gender: 'M' | 'F';
+  idUser: string;
   weights?: IWeights[];
 }
 
 export interface IWeights {
   id?: string;
+  idPig: string;
   weight: number;
   date: string;
 }

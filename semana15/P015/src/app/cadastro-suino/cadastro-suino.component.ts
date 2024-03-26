@@ -35,8 +35,9 @@ export class CadastroSuinoComponent implements OnInit {
 
   onSubmit(): void {
     const formValue = this.cadastroForm.value;
+    const userData = localStorage.getItem('userData');
     const cadastro: IPig = {
-      id: formValue.brincoAnimal || '',
+      idPig: formValue.brincoAnimal || '',
       fatherEarTag: formValue.brincoPai || '',
       motherEarTag: formValue.brincoMae || '',
       dateOfBirth: formValue.dataNascimento || '',
@@ -44,14 +45,17 @@ export class CadastroSuinoComponent implements OnInit {
       gender:
         formValue.sexo === 'M' || formValue.sexo === 'F' ? formValue.sexo : 'M',
       status: formValue.status || '',
+      idUser: userData ? JSON.parse(userData).id : '',
     };
 
     const peso: IWeights = {
       weight: formValue.peso ? parseFloat(formValue.peso) : 0,
       date: new Date().toISOString(),
+      idPig: cadastro.idPig || '',
     };
 
     this.storageService.addCadastroSuino(cadastro);
-    if (cadastro.id) this.storageService.addPesoToSuino(cadastro.id, peso);
+    if (cadastro.idPig)
+      this.storageService.addPesoToSuino(cadastro.idPig, peso);
   }
 }

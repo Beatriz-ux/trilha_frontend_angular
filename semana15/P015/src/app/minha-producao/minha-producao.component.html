@@ -10,7 +10,7 @@
             <p>Status: {{suino.status}}</p>
             <p>Pesos: </p>
             <ul>
-                <li *ngFor="let weight of pesos">
+                <li *ngFor="let weight of suino.weights">
                     <p>Peso: {{weight.weight}}</p>
                     <p>Data: {{weight.date}}</p>
                 </li>

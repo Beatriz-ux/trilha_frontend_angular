@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { IPig, IUser, IWeights } from '../model/usuario.model';
 import { AuthService } from './auth.service';
 import {
+  EMPTY,
   Observable,
   catchError,
   map,
@@ -58,12 +59,11 @@ export class StorageService {
     console.log(userData);
 
     if (userData) {
-      var pigId = cadastro.id;
       const user = JSON.parse(userData);
       console.log(user);
       return this.http
         .post(
-          `https://residencia-tic-default-rtdb.firebaseio.com/users/${user.id}/${pigId}.json`,
+          `https://residencia-tic-default-rtdb.firebaseio.com/suinos.json`,
           cadastro
         )
         .subscribe(
@@ -79,34 +79,44 @@ export class StorageService {
     return console.log('Usuário não autenticado');
   }
 
-  listarSuinos(): Observable<IPig[]> {
+  listarSuinos(): Observable<{ [key: string]: IPig }> {
+    const userData = localStorage.getItem('userData');
+
+    if (userData) {
+      const user = JSON.parse(userData);
+      return this.http.get<{ [key: string]: IPig }>(
+        `https://residencia-tic-default-rtdb.firebaseio.com/suinos.json`
+      );
+    }
+
+    console.log('Usuário não autenticado');
+    return of({});
+  }
+
+  listarPesosSuino(idPig: string): Observable<IWeights[]> {
     const userData = localStorage.getItem('userData');
 
     if (userData) {
       const user = JSON.parse(userData);
       return this.http
-        .get<{ [key: string]: { [key: string]: IPig } }>(
-          `https://residencia-tic-default-rtdb.firebaseio.com/users/${user.id}.json`
+        .get<{ [key: string]: IWeights }>(
+          `https://residencia-tic-default-rtdb.firebaseio.com/pesos.json`
         )
         .pipe(
-          map((responseData) => {
-            const pigArray: IPig[] = [];
-            for (const pigId in responseData) {
-              if (responseData.hasOwnProperty(pigId)) {
-                for (const key in responseData[pigId]) {
-                  if (responseData[pigId].hasOwnProperty(key)) {
-                    pigArray.push({ ...responseData[pigId][key], id: key });
-                  }
-                }
+          map((pesosObj) => {
+            const pesosArray: IWeights[] = [];
+            for (const key in pesosObj) {
+              if (pesosObj[key].idPig === idPig) {
+                pesosArray.push({ ...pesosObj[key], id: key });
               }
             }
-            return pigArray;
+            return pesosArray;
           })
         );
     }
 
     console.log('Usuário não autenticado');
-    return of([] as IPig[]);
+    return of([]);
   }
 
   addPesoToSuino(userId: string, peso: IWeights) {
@@ -116,7 +126,7 @@ export class StorageService {
       const user = JSON.parse(userData);
       return this.http
         .post(
-          `https://residencia-tic-default-rtdb.firebaseio.com/pesos/${user.id}/${userId}/.json`,
+          `https://residencia-tic-default-rtdb.firebaseio.com/pesos.json`,
           peso
         )
         .subscribe(
@@ -130,38 +140,5 @@ export class StorageService {
     }
 
     return console.log('Usuário não autenticado');
-  }
-
-  listarPesosSuino(): Observable<IWeights[]> {
-    const userData = localStorage.getItem('userData');
-
-    if (userData) {
-      const user = JSON.parse(userData);
-      return this.http
-        .get<{ [key: string]: { [key: string]: IWeights } }>(
-          `https://residencia-tic-default-rtdb.firebaseio.com/pesos/${user.id}.json`
-        )
-        .pipe(
-          map((responseData) => {
-            const weightsArray: IWeights[] = [];
-            for (const weightId in responseData) {
-              if (responseData.hasOwnProperty(weightId)) {
-                for (const key in responseData[weightId]) {
-                  if (responseData[weightId].hasOwnProperty(key)) {
-                    weightsArray.push({
-                      ...responseData[weightId][key],
-                      id: key,
-                    });
-                  }
-                }
-              }
-            }
-            return weightsArray;
-          })
-        );
-    }
-
-    console.log('Usuário não autenticado');
-    return of([] as IWeights[]);
   }
 }
