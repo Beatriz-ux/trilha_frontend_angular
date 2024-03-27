@@ -42,7 +42,7 @@ export class LoginComponent {
 
     this.authService.login(email, password).subscribe((responseData) => {
       console.log(responseData);
-      this.router.navigate(['']);
+      this.router.navigate(['dashboard']);
     });
   }
 }

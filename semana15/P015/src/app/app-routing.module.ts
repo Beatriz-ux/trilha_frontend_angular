@@ -16,13 +16,16 @@ const routes: Routes = [
       { path: '', component: CadastroComponent },
     ],
   },
-  { path: 'dashboard', component: DashboardComponent },
   {
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'teste', component: MinhaProducaoComponent },
+  {
+    path: 'teste',
+    component: MinhaProducaoComponent,
+    canActivate: [AuthGuard],
+  },
   { path: '**', redirectTo: '' },
 ];
 
