@@ -19,3 +19,16 @@
 
 - [Semana 12](./semana12): FormsGroup e validações
     - [P012](https://beatriz-ux.github.io/trilha_frontend_angular/semana12/P011/dist/p011/browser): Atualizando a P11 para acompanhamento em tempo real.
+
+- [Semana 15](./semana15): Firebase
+    - [P015](https://residencia-tic.web.app): Aplicação de cadastro de suinos com integração com firebase, usando Realtime Database.
+
+
+
+> Como fazer deploy:
+
+```
+ng build
+
+firebase deploy
+```
