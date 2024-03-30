@@ -4,6 +4,7 @@
   background-color: var(--primary-color);
   padding: 10px 30px;
   position: fixed;
+  z-index: 1000;
 }
 .menu {
   display: flex;
