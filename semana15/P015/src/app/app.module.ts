@@ -15,6 +15,8 @@ import { GraficoComponent } from './grafico/grafico.component';
 import { MatIconModule } from '@angular/material/icon';
 import { HistoricoPesoComponent } from './historico-peso/historico-peso.component';
 import { MinhaProducaoComponent } from './minha-producao/minha-producao.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +28,8 @@ import { MinhaProducaoComponent } from './minha-producao/minha-producao.componen
     GraficoComponent,
     HistoricoPesoComponent,
     MinhaProducaoComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
