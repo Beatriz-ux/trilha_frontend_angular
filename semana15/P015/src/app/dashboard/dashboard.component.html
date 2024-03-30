@@ -5,9 +5,10 @@
     </div>
     <div class="links">
       <a href="#suino">Suino +</a>
-      <a href="#">Minha produção</a>
+      <a href="/dashboard#minhaproducao">Minha produção</a>
       <a href="#">Grafico</a>
       <a href="#">Histórico do peso</a>
+
     </div>
   </div>
 </div>
@@ -21,19 +22,8 @@
 
   <div class="secao secaoProducao">
     <div class="minhaProducao max-width">
-      <p class="topico">Minha produção</p>
-      <div class="item">
-        <div class="filtros">
-          <span>Animal</span>
-          <span (click)="orderBy(1)">Tag Pai</span>
-          <span>Tag Mãe</span>
-          <span>Nasc.</span>
-          <span>sexo</span>
-          <span>Status</span>
-          <span>Saida</span>
-        </div>
-        <!-- <app-minha-producao /> -->
-      </div>
+      <p class="topico" id="minhaproducao">Minha produção</p>
+      <app-minha-producao></app-minha-producao>
     </div>
   </div>
   <div class="secao grafico">
@@ -41,7 +31,11 @@
       <p class="topico">Acompanhamento</p>
 
       <label for="busca" class="busca">
-        <input type="text" id="busca" placeholder="informe o brinco do animal"/>
+        <input
+          type="text"
+          id="busca"
+          placeholder="informe o brinco do animal"
+        />
         <img src="./assets/icons/search.png" alt="" />
       </label>
 

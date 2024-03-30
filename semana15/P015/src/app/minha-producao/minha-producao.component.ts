@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../service/storage.service';
-import { IPig, IWeights } from '../model/usuario.model';
+import { IPig, IWeights, Usuario } from '../model/usuario.model';
 import { forkJoin, of, switchMap, tap } from 'rxjs';
 
 @Component({
@@ -15,6 +15,9 @@ export class MinhaProducaoComponent implements OnInit {
   constructor(private storageService: StorageService) {}
 
   ngOnInit(): void {
+    let user = JSON.parse(localStorage.getItem('userData') || '{}');
+    //granti que o user é do tipo Usuario
+
     this.storageService
       .listarSuinos()
       .pipe(
@@ -22,7 +25,11 @@ export class MinhaProducaoComponent implements OnInit {
           this.suinos = Object.keys(suinosObj).map((key) => {
             return { ...suinosObj[key], id: key };
           });
-
+          if (user && user.id){
+            this.suinos = this.suinos.filter((pig) => pig.idUser === user.id);
+          }else{
+            this.suinos = [];
+          }
           // Cria um array de observables para cada chamada listarPesosSuino
           const pesosObservables = this.suinos.map((pig) =>
             pig.idPig

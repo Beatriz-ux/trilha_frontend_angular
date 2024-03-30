@@ -86,23 +86,8 @@ footer p {
   gap: 20px;
   color: var(--backound-color);
 }
-.minhaProducao .item {
-  align-items: center;
-}
-.secaoProducao .minhaProducao .topico {
+.minhaProducao .topico {
   color: var(--backound-color9);
-}
-.minhaProducao .filtros {
-  display: flex;
-  align-items: center;
-  padding: 5px 30px;
-  background: var(--backound-color);
-}
-.minhaProducao .filtros span {
-  cursor: pointer;
-  flex: 1;
-  color: var(--primary-color);
-  text-align: center;
 }
 .acompanhamento {
   display: flex;
