@@ -12,6 +12,7 @@ import {
   take,
   throwError,
 } from 'rxjs';
+import { ISessao } from '../model/sessao.model';
 
 @Injectable({
   providedIn: 'root',
@@ -128,6 +129,72 @@ export class StorageService {
         .post(
           `https://residencia-tic-default-rtdb.firebaseio.com/pesos.json`,
           peso
+        )
+        .subscribe(
+          (response) => {
+            console.log('Resposta da solicitação:', response);
+          },
+          (error) => {
+            console.error('Erro na solicitação:', error);
+          }
+        );
+    }
+
+    return console.log('Usuário não autenticado');
+  }
+
+  addCadastroSessao(cadastro: ISessao) {
+    const userData = localStorage.getItem('userData');
+
+    if (userData) {
+      const user = JSON.parse(userData);
+      return this.http
+        .post(
+          `https://residencia-tic-default-rtdb.firebaseio.com/sessoes.json`,
+          cadastro
+        )
+        .subscribe(
+          (response) => {
+            console.log('Resposta da solicitação:', response);
+          },
+          (error) => {
+            console.error('Erro na solicitação:', error);
+          }
+        );
+    }
+
+    return console.log('Usuário não autenticado');
+  }
+
+  listarSessoes(): Observable<{ [key: string]: ISessao }> {
+    const userData = localStorage.getItem('userData');
+
+    if (userData) {
+      const user = JSON.parse(userData);
+      return this.http.get<{ [key: string]: ISessao }>(
+        `https://residencia-tic-default-rtdb.firebaseio.com/sessoes.json`
+      );
+    }
+
+    console.log('Usuário não autenticado');
+    return of({});
+  }
+
+  atualizarSessao(sessao: ISessao) {
+    const userData = localStorage.getItem('userData');
+
+    if (userData) {
+      const user = JSON.parse(userData);
+      const id = sessao.id;
+      const sessaoSemId = {
+        ...sessao,
+        id: null
+      }
+
+      return this.http
+        .put(
+          `https://residencia-tic-default-rtdb.firebaseio.com/sessoes/${id}.json`,
+          sessaoSemId
         )
         .subscribe(
           (response) => {

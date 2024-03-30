@@ -1,0 +1,103 @@
+<app-header />
+<div class="secao suinoplus max-width">
+  <p id="suino" class="topico">Nova Sessão</p>
+  <div class="item">
+    <div class="containerCadastro">
+      <div class="formCadastro">
+        <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+          <div class="group">
+            <div class="form-group">
+              <label for="data">Data</label>
+              <input
+                type="date"
+                formControlName="data"
+                placeholder="Data de "
+                class="form-control"
+                id="data"
+              />
+            </div>
+            <div class="form-group">
+              <label for="descricao">Descrição</label>
+              <input
+                formControlName="descricao"
+                placeholder="Oque será feito na sessão?"
+                class="form-control"
+                id="descricao"
+              />
+            </div>
+          </div>
+          <div class="group">
+            <div class="form-group">
+              <label for="atividades">Atividades</label>
+              <input
+                formControlName="atividades"
+                placeholder="Separe as atividades com ;"
+                class="form-control"
+                id="atividades"
+              />
+            </div>
+          </div>
+          <div class="group">
+            <div class="form-group">
+              <label for="porcos">Porcos participantes</label>
+              <ng-multiselect-dropdown
+                [placeholder]="'Selecione os porcos'"
+                [settings]="dropdownSettings"
+                [data]="dropdownList"
+                [(ngModel)]="selectedItems"
+                (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)"
+                (onDeSelect)="onItemDeSelect($event)"
+                (onDeSelectAll)="onDeSelectAll($event)"
+              >
+              </ng-multiselect-dropdown>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Confirmar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="secao suinoplus tabela">
+  <p id="suino" class="topico">Escolha uma sessão</p>
+  <select (change)="exibirSessao($event)">
+    <option value="">Selecione a opção</option>
+    <option *ngFor="let sessao of sessoes" [value]="sessao.id">
+      {{ sessao.descricao }}
+    </option>
+  </select>
+
+  <div class="max-width tabela-wrapper " *ngIf="selectedSessao.id">
+    <div class="filtros cabecalho">
+      <span>{{formatDate(selectedSessao.data)}}</span>
+      <span>{{ selectedSessao.descricao }}</span>
+    </div>
+    <div class="filtros cabecalho">
+      <span>Brinco</span>
+      <span *ngFor="let atividade of selectedSessao.atividades">{{
+        atividade
+      }}</span>
+    </div>
+
+    <div *ngFor="let suino of selectedSessao.porcos" class="filtros">
+      <span>{{ suino.idPig }}</span>
+      <span *ngFor="let atividade of selectedSessao.atividades">
+        <input
+          type="checkbox"
+          checked="{{
+            suino.atividadesCompletas.includes(atividade) ? 'checked' : ''
+          }}"
+          (change)="atualizarAtividade(atividade, suino)"
+        />
+      </span>
+    </div>
+    <div style="width: 100%; display: flex; align-items: center">
+      <button (click)="salvarSessao()">Salvar</button>
+    </div>
+  </div>
+  <div class="spacing" *ngIf="!selectedSessao.id"></div>
+</div>
+
+<app-footer />

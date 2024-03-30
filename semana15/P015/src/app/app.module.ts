@@ -17,6 +17,8 @@ import { HistoricoPesoComponent } from './historico-peso/historico-peso.componen
 import { MinhaProducaoComponent } from './minha-producao/minha-producao.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { SessaoComponent } from './sessao/sessao.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,7 @@ import { FooterComponent } from './footer/footer.component';
     MinhaProducaoComponent,
     HeaderComponent,
     FooterComponent,
+    SessaoComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { FooterComponent } from './footer/footer.component';
     FormsModule,
     HttpClientModule,
     MatIconModule,
+    NgMultiSelectDropDownModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AutenticaInterceptor, multi: true },
