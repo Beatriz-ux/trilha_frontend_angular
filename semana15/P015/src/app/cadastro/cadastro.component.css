@@ -104,8 +104,9 @@ form .form-group input.ng-valid.ng-touched {
     flex-direction: column;
     gap: 1rem;
     padding: 2rem;
-    overflow-y: scroll;
-    height: calc(100vh - 4rem);
+    overflow-y: auto;
+    height: 100vh;
+    height: 100dvh;
 }
 
  .formCadastro form{

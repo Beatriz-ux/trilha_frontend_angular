@@ -8,7 +8,7 @@
 .containerCadastro .banner{
     display: flex;
     flex-wrap: wrap;
-    height: 30vw;
+    height: 50vh;
     background: var(--backound-color);
 
 }
@@ -47,6 +47,7 @@
 .containerCadastro .slogan{
     display: flex;
     padding: 2rem 0;
+    height: 50vh;
 }
 .containerCadastro .slogan .marca , .containerCadastro .slogan .benefits{
     width: 50%;
@@ -78,6 +79,7 @@
     flex-direction: column;
     padding: 1rem;
     gap:2rem;
+    justify-content: center;
 
 }
 .containerCadastro .slogan .benefits p{
