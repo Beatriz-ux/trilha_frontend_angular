@@ -34,6 +34,9 @@ export class CadastroSuinoComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(): void {
+    if (!this.cadastroForm.valid) {
+      return;
+    }
     const formValue = this.cadastroForm.value;
     const userData = localStorage.getItem('userData');
     const cadastro: IPig = {
@@ -57,5 +60,7 @@ export class CadastroSuinoComponent implements OnInit {
     this.storageService.addCadastroSuino(cadastro);
     if (cadastro.idPig)
       this.storageService.addPesoToSuino(cadastro.idPig, peso);
+    
+    this.cadastroForm.reset();
   }
 }
