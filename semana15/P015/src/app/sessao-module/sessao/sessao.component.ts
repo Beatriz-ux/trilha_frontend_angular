@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { IPig, IWeights } from '../model/usuario.model';
+import { IPig, IWeights } from '../../model/usuario.model';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
-import { StorageService } from '../service/storage.service';
+import { StorageService } from '../../service/storage.service';
 import { map, switchMap } from 'rxjs';
-import { IPorco, ISessao } from '../model/sessao.model';
+import { IPorco, ISessao } from '../../model/sessao.model';
 
 @Component({
   selector: 'app-sessao',
@@ -70,7 +70,6 @@ export class SessaoComponent {
           this.sessoes = Object.keys(sessoesObj).map((key) => {
             return { ...sessoesObj[key], id: key };
           });
-          
         })
       )
       .subscribe();
@@ -152,7 +151,7 @@ export class SessaoComponent {
       } else {
         porcoSelecionado.atividadesCompletas.push(atividade);
       }
-      
+
       this.selectedSessao = {
         ...this.selectedSessao,
         porcos: this.selectedSessao.porcos.map((porcoSessao) => {
@@ -171,5 +170,4 @@ export class SessaoComponent {
   formatDate(date: string) {
     return new Date(date).toLocaleDateString();
   }
-
 }

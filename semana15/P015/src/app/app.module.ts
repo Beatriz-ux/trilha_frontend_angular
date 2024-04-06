@@ -16,7 +16,7 @@ import { HistoricoPesoComponent } from './dashboard-module/historico-peso/histor
 import { MinhaProducaoComponent } from './dashboard-module/minha-producao/minha-producao.component';
 // import { HeaderComponent } from './compartilhado/header/header.component';
 // import { FooterComponent } from './compartilhado/footer/footer.component';
-import { SessaoComponent } from './sessao/sessao.component';
+// import { SessaoComponent } from './sessao-module/sessao/sessao.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { LoginModuleModule } from './login-module/login-module.module';
 @NgModule({
@@ -30,7 +30,7 @@ import { LoginModuleModule } from './login-module/login-module.module';
     // HistoricoPesoComponent,
     // HeaderComponent,
     // FooterComponent,
-    SessaoComponent,
+    // SessaoComponent,
   ],
   imports: [
     BrowserModule,

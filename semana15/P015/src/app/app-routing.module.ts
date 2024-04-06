@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './guards/authorization.guard';
-import { SessaoComponent } from './sessao/sessao.component';
+import { SessaoComponent } from './sessao-module/sessao/sessao.component';
 
 const routes: Routes = [
   {
@@ -27,13 +27,17 @@ const routes: Routes = [
     loadChildren: () =>
       import('./dashboard-module/dashboard-module.module').then(
         (m) => m.DashboardModuleModule
-      )
+      ),
     // canActivate: [AuthGuard],
   },
   {
     path: 'dashboard/manejo',
-    component: SessaoComponent,
-    canActivate: [AuthGuard],
+    loadChildren: () =>
+      import('./sessao-module/sessao-module.module').then(
+        (m) => m.SessaoModuleModule
+      ),
+    // component: SessaoComponent,
+    // canActivate: [AuthGuard],
   },
   { path: '**', redirectTo: '' },
 ];
