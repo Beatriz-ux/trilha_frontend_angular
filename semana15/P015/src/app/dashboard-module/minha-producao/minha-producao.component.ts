@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { StorageService } from '../service/storage.service';
-import { IPig, IWeights, Usuario } from '../model/usuario.model';
+import { StorageService } from '../../service/storage.service';
+import { IPig, IWeights, Usuario } from '../../model/usuario.model';
 import { forkJoin, of, switchMap, tap } from 'rxjs';
 
 @Component({
@@ -25,9 +25,9 @@ export class MinhaProducaoComponent implements OnInit {
           this.suinos = Object.keys(suinosObj).map((key) => {
             return { ...suinosObj[key], id: key };
           });
-          if (user && user.id){
+          if (user && user.id) {
             this.suinos = this.suinos.filter((pig) => pig.idUser === user.id);
-          }else{
+          } else {
             this.suinos = [];
           }
           // Cria um array de observables para cada chamada listarPesosSuino
