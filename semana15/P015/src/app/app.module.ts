@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
-import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { CadastroSuinoComponent } from './cadastro-suino/cadastro-suino.component';
@@ -19,11 +18,11 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SessaoComponent } from './sessao/sessao.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { LoginModuleModule } from './login-module/login-module.module';
 @NgModule({
   declarations: [
     AppComponent,
     CadastroComponent,
-    LoginComponent,
     HomeComponent,
     CadastroSuinoComponent,
     DashboardComponent,
@@ -42,6 +41,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     HttpClientModule,
     MatIconModule,
     NgMultiSelectDropDownModule.forRoot(),
+    LoginModuleModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AutenticaInterceptor, multi: true },
