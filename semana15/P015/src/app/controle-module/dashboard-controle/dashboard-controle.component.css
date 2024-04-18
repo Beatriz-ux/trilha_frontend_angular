@@ -1,27 +1,24 @@
- .containerControler {
-   
-    width: 100%;
-    padding-top: 55px;
-    display: flex;
-    flex-direction: column;
-    gap:10px;
-    min-height: 92vh;
+.containerControler {
+  width: 100%;
+  padding-top: 55px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 92vh;
+}
+.search {
+  background: var(--backound-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0px;
+}
 
-  }
-  .search{
-    
-    background: var(--backound-color);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px 0px;
-  }
-  
-  .containerSecao{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.containerSecao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .busca {
   display: flex;
   align-items: center;
@@ -40,63 +37,58 @@
   outline: none;
 }
 .topico {
-    font-size: 1.4rem;
-    border-radius: 20px;
-    color: var(--primary-color);
-    text-align: center;
-    margin: 0;
-  }
-
- select{
-    padding: 0.5rem;
-    border: none;
-    border-bottom: 2px solid var(--primary-color);
-    background: transparent;
-    
+  font-size: 1.4rem;
+  border-radius: 20px;
+  color: var(--primary-color);
+  text-align: center;
+  margin: 0;
 }
-   select option {
-    background: white;
-    color: var(--primary-color);
-  }
-  .item {
-    align-items: center;
-  }
-   
-  .filtros {
-    display: flex;
-    align-items: center;
-    padding: 5px 30px;
-    background: var(--backound-color);
-    color: var(--primary-color);
-  
-  }
-  .filtros span {
-    cursor: pointer;
-    flex: 1;
-    text-align: center;
-  }
-  
-  .filtros.cabecalho{
-      background: var(--primary-color);
-      font-weight: 600;
-      color: white;
-  }
-  .containerTabela{
-    
 
-  }
-.destaque{
+select {
+  padding: 0.5rem;
+  border: none;
+  border-bottom: 2px solid var(--primary-color);
+  background: transparent;
+}
+select option {
+  background: white;
+  color: var(--primary-color);
+}
+.item {
+  align-items: center;
+}
+
+.filtros {
+  display: flex;
+  align-items: center;
+  padding: 5px 30px;
+  background: var(--backound-color);
+  color: var(--primary-color);
+}
+.filtros span {
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+}
+
+.filtros.cabecalho {
+  background: var(--primary-color);
+  font-weight: 600;
+  color: white;
+}
+.containerTabela {
+}
+.destaque {
   background: var(--quaternary-color);
   transition: 0.5s;
 }
-.containerGrafico{
+.containerGrafico {
   display: flex;
   gap: 20px;
   justify-content: center;
   background: white;
-
 }
-.botoes{
+.botoes {
   display: flex;
   gap: 10px;
   justify-content: center;
@@ -105,11 +97,11 @@
   border-radius: 10px;
   overflow: hidden;
 }
-.botoes .capsula{
+.botoes .capsula {
   padding: 10px;
 }
 
-.secaoGrafico{
+.secaoGrafico {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -118,7 +110,7 @@
   gap: 10px;
   padding: 20px 0px;
 }
-.onGrafico{
+.onGrafico {
   width: 100%;
   display: flex;
   flex-direction: column;

@@ -37,7 +37,7 @@ export class DashboardControleComponent {
   }[];
   porcos = [] as { item_id: string; item_text: string }[];
   sessoes: ISessao[] = [];
-  grafico : number = 1;
+  grafico: number = 1;
 
   constructor(private storageService: StorageService) {
     this.chartOptions = {
@@ -114,7 +114,7 @@ export class DashboardControleComponent {
             this.controleAtividades.push(...atividades);
           });
         }
-       
+
         this.geraGraficoPesagem();
         this.gerarGraficoAtividades();
       },
@@ -176,7 +176,6 @@ export class DashboardControleComponent {
   }
 
   geraGraficoPesagem() {
-    
     const series = [] as number[];
     const categories = [] as string[];
     this.controleAtividades.forEach((item) => {
@@ -195,9 +194,7 @@ export class DashboardControleComponent {
       categories.length > 0 &&
       this.chartOptions
     ) {
-     
-
-      this.chartOptions={
+      this.chartOptions = {
         series: [
           {
             name: 'My-series',
@@ -214,7 +211,6 @@ export class DashboardControleComponent {
         xaxis: {
           categories: categories,
         },
-
       };
     }
   }
@@ -222,20 +218,22 @@ export class DashboardControleComponent {
   gerarGraficoAtividades() {
     const series = [] as number[];
     const categories = [] as string[];
-    const repeticaoAtividade = this.controleAtividades.filter((item) => item.atividade !== 'Pesagem').reduce((acc, item) => {
-      if (!acc[item.atividade]) {
-        acc[item.atividade] = 0;
-      }
-      acc[item.atividade] += 1;
-      return acc;
-    }, {} as { [key: string]: number })
+    const repeticaoAtividade = this.controleAtividades
+      .filter((item) => item.atividade !== 'Pesagem')
+      .reduce((acc, item) => {
+        if (!acc[item.atividade]) {
+          acc[item.atividade] = 0;
+        }
+        acc[item.atividade] += 1;
+        return acc;
+      }, {} as { [key: string]: number });
 
     Object.keys(repeticaoAtividade).forEach((key) => {
       categories.push(key);
       series.push(repeticaoAtividade[key]);
     });
 
-    this.chartOptions2={
+    this.chartOptions2 = {
       series: [
         {
           name: 'My-series',
@@ -252,12 +250,9 @@ export class DashboardControleComponent {
       xaxis: {
         categories: categories,
       },
-
     };
-  
-
   }
-  setGrafico(grafico: number){
+  setGrafico(grafico: number) {
     this.grafico = grafico;
   }
 }
