@@ -1,12 +1,20 @@
  .containerControler {
-    min-height: 300px;
+   
     width: 100%;
-    padding-top: 60px;
+    padding-top: 55px;
     display: flex;
     flex-direction: column;
     gap:10px;
-    background: var(--backound-color);
+    min-height: 92vh;
 
+  }
+  .search{
+    
+    background: var(--backound-color);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0px;
   }
   
   .containerSecao{
@@ -74,6 +82,45 @@
       color: white;
   }
   .containerTabela{
-    min-height: 70vh;
+    
 
   }
+.destaque{
+  background: var(--quaternary-color);
+  transition: 0.5s;
+}
+.containerGrafico{
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  background: white;
+
+}
+.botoes{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  border: 1px solid var(--quaternary-color);
+  width: max-content;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.botoes .capsula{
+  padding: 10px;
+}
+
+.secaoGrafico{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  padding: 20px 0px;
+}
+.onGrafico{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

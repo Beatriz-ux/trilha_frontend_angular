@@ -5,6 +5,7 @@ import { TabelaHistoricoComponent } from './tabela-historico/tabela-historico.co
 import { RouterModule } from '@angular/router';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { CompartilhadoModule } from '../compartilhado/compartilhado.module';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 
 
@@ -16,6 +17,7 @@ import { CompartilhadoModule } from '../compartilhado/compartilhado.module';
   imports: [
     CommonModule,
     CompartilhadoModule,
+    NgApexchartsModule,
     NgMultiSelectDropDownModule.forRoot(),
     RouterModule.forChild([
       { path: '', component: DashboardControleComponent }

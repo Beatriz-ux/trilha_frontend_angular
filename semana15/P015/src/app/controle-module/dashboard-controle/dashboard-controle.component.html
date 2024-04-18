@@ -1,33 +1,98 @@
 <app-header />
-<div class="containerControler search">
-  <div class="max-width containerSecao">
-    <p class="topico" id="grafico">Controle de Atividades</p>
-    <select (change)="search($event)">
-      <option value="">Selecione a opção</option>
-      <option *ngFor="let porco of porcos" [value]="porco.item_id">
-        {{ porco.item_id }}
-      </option>
-    </select>
-  </div>
-  <div class="containerTabela">
-    <div class="item max-width">
-      <div class="filtros cabecalho">
-        <span>Data</span>
-        <span >Atividade</span>
-        <span>Valor/Status</span>
+<div class="containerControler">
+  <div class="search">
+    <div class="max-width containerSecao">
+      <p class="topico" id="grafico">Controle de Atividades</p>
+      <select (change)="search($event)">
+        <option value="">Selecione a opção</option>
+        <option *ngFor="let porco of porcos" [value]="porco.item_id">
+          {{ porco.item_id }}
+        </option>
+      </select>
+    </div>
+    <div class="containerTabela">
+      <div class="item max-width">
+        <div class="filtros cabecalho">
+          <span>Data</span>
+          <span>Atividade</span>
+          <span>Valor/Status</span>
+        </div>
+        <div *ngIf="controleAtividades.length > 0; else noData">
+          <div *ngFor="let controle of controleAtividades" class="filtros">
+            <span>{{ controle.data | date : "dd/MM/yyyy" }}</span>
+            <span>{{ controle.atividade }}</span>
+            <span>{{ controle.valor }}</span>
+          </div>
+        </div>
+        <ng-template #noData>
+          <p>Escolha um suino</p>
+        </ng-template>
       </div>
-      <div *ngIf="controleAtividades.length > 0; else noData">
-        <div *ngFor="let controle of controleAtividades" class="filtros">
-          <span>{{ controle.data | date: 'dd/MM/yyyy' }}</span>
-          <span>{{ controle.atividade }}</span>
-          <span>{{ controle.valor }}</span>
+    </div>
+  </div>
+  <div class="containerGrafico">
+    <div class="max-width secaoGrafico">
+      <p class="topico">Graficos</p>
+      <div
+        *ngIf="controleAtividades.length > 0; else noGrafico"
+        class="onGrafico"
+      >
+        <div class="botoes">
+          <div
+            (click)="setGrafico(1)"
+            [ngClass]="{ destaque: grafico === 1 }"
+            class="capsula"
+          >
+            <span>Pesagem</span>
+          </div>
+          <div
+            (click)="setGrafico(2)"
+            [ngClass]="{ destaque: grafico === 2 }"
+            class="capsula"
+          >
+            <span>Atividades</span>
+          </div>
+        </div>
+        <div
+          *ngIf="
+            chartOptions.series &&
+            chartOptions.chart &&
+            chartOptions.xaxis &&
+            chartOptions.title
+          "
+          style="width: 100%"
+        >
+          <div *ngIf="grafico === 1; else setAtividade" style="width: 100%">
+            <apx-chart
+              [series]="chartOptions.series"
+              [chart]="chartOptions.chart"
+              [xaxis]="chartOptions.xaxis"
+              [title]="chartOptions.title"
+            ></apx-chart>
+          </div>
+          <ng-template #setAtividade>
+            <div
+              *ngIf="
+                chartOptions2.series &&
+                chartOptions2.chart &&
+                chartOptions2.xaxis &&
+                chartOptions2.title
+              "
+            >
+              <apx-chart
+                [series]="chartOptions2.series"
+                [chart]="chartOptions2.chart"
+                [xaxis]="chartOptions2.xaxis"
+                [title]="chartOptions2.title"
+              ></apx-chart>
+            </div>
+          </ng-template>
         </div>
       </div>
-      <ng-template #noData>
-        <p>Nenhum suíno encontrado.</p>
+      <ng-template #noGrafico>
+        <p>Escolha um suino</p>
       </ng-template>
     </div>
-    
   </div>
 </div>
 <app-footer />
