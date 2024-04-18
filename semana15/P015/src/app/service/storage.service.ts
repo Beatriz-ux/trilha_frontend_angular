@@ -89,7 +89,6 @@ export class StorageService {
         `https://residencia-tic-default-rtdb.firebaseio.com/suinos.json`
       );
     }
-
     console.log('Usuário não autenticado');
     return of({});
   }
@@ -115,6 +114,7 @@ export class StorageService {
           })
         );
     }
+    
 
     console.log('Usuário não autenticado');
     return of([]);

@@ -1,0 +1,33 @@
+<app-header />
+<div class="containerControler search">
+  <div class="max-width containerSecao">
+    <p class="topico" id="grafico">Controle de Atividades</p>
+    <select (change)="search($event)">
+      <option value="">Selecione a opção</option>
+      <option *ngFor="let porco of porcos" [value]="porco.item_id">
+        {{ porco.item_id }}
+      </option>
+    </select>
+  </div>
+  <div class="containerTabela">
+    <div class="item max-width">
+      <div class="filtros cabecalho">
+        <span>Data</span>
+        <span >Atividade</span>
+        <span>Valor/Status</span>
+      </div>
+      <div *ngIf="controleAtividades.length > 0; else noData">
+        <div *ngFor="let controle of controleAtividades" class="filtros">
+          <span>{{ controle.data | date: 'dd/MM/yyyy' }}</span>
+          <span>{{ controle.atividade }}</span>
+          <span>{{ controle.valor }}</span>
+        </div>
+      </div>
+      <ng-template #noData>
+        <p>Nenhum suíno encontrado.</p>
+      </ng-template>
+    </div>
+    
+  </div>
+</div>
+<app-footer />

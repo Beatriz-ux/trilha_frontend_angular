@@ -39,6 +39,13 @@ const routes: Routes = [
     // component: SessaoComponent,
     // canActivate: [AuthGuard],
   },
+  {
+    path: 'dashboard/controle',
+    loadChildren: () =>
+      import('./controle-module/controle-module.module').then(
+        (m) => m.ControleModuleModule
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
 

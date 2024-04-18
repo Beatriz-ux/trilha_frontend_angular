@@ -19,6 +19,7 @@ import { MinhaProducaoComponent } from './dashboard-module/minha-producao/minha-
 // import { SessaoComponent } from './sessao-module/sessao/sessao.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { LoginModuleModule } from './login-module/login-module.module';
+import { ControleModuleModule } from './controle-module/controle-module.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +42,7 @@ import { LoginModuleModule } from './login-module/login-module.module';
     MatIconModule,
     NgMultiSelectDropDownModule.forRoot(),
     LoginModuleModule,
+    ControleModuleModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AutenticaInterceptor, multi: true },

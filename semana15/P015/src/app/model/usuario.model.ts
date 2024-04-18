@@ -39,3 +39,11 @@ export interface IWeights {
   weight: number;
   date: string;
 }
+
+export interface IManejo{
+  idManejo?: string;
+  idPig: string;
+  date: string;
+  type: string;
+  description: string;
+}
